@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { resetTemplateState } from "../../../../store/features/template/templateSlice";
 import { useParams } from "react-router-dom";
 import { useGetTemplateQuery } from "../../../../store/features/template/api";
+import CreateTemplateButton from "../../../../components/Teacher/Templates/Create/CreateTemplateButton";
 
 function CreateTemplatePage() {
   const { id } = useParams();
@@ -39,6 +40,8 @@ function CreateTemplatePage() {
       <QuestionTypes />
 
       <AddQuestionType />
+
+      <CreateTemplateButton />
     </div>
   );
 }

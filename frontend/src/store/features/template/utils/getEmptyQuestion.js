@@ -4,7 +4,6 @@ export const getEmptyQuestion = ({ type = QuestionTypes.MULTIPLE_CHOICE }) => {
   return {
     type,
     data: {
-      label: "",
       questionCount: 5,
       marksPerQuestion: 2,
       difficultyLevel: DifficultyLevelTypes.EASY,
