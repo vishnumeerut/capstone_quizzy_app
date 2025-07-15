@@ -1,7 +1,7 @@
 import { GET_TEMPLATE_BY_ID_URL } from "../../../../components/api";
 import { apiSlice } from "../../../api";
-import { templateToState } from "../../../utils";
 import { setTemplate } from "../templateSlice";
+import { templateToState } from "../utils";
 
 const getTemplateApi = apiSlice.injectEndpoints({
   endpoints: (build) => ({
