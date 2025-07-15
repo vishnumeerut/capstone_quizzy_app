@@ -4,14 +4,23 @@ import { useCreateTemplateMutation } from "../../../../../store/features/templat
 import { useSelector } from "react-redux";
 import { templateSelector } from "../../../../../store/features/template/selectors";
 import { stateToTemplate } from "../../../../../store/features/template/utils";
+import { useNavigate } from "react-router-dom";
 
 function CreateTemplateButton () {
 
     const [triggerCreate, {isLoading}] = useCreateTemplateMutation()
     const template = useSelector(templateSelector);
-    const handleClick = () => {
+    
+    const navigate = useNavigate();
+    const handleClick = async () => {
         if(isLoading) return;
-        triggerCreate(stateToTemplate(template));
+        try{
+           await triggerCreate(stateToTemplate(template)).unwrap();
+           navigate("/teacher/templates");
+        }
+        catch(error) {
+            console.log("There was an error in creating template", error);
+        }
     }
     return (
         <CustomButton disabled={isLoading} className={"my-4"} onClick={handleClick}>
