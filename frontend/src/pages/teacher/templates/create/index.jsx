@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { resetTemplateState } from "../../../../store/features/template/templateSlice";
 import { useParams } from "react-router-dom";
-import { useGetTemplateQuery } from "../../../../store/api";
+import { useGetTemplateQuery } from "../../../../store/features/template/api";
 
 function CreateTemplatePage() {
   const { id } = useParams();

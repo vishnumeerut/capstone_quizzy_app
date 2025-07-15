@@ -2,14 +2,13 @@ import { EyeIcon } from "lucide-react";
 import { TrashIcon } from "lucide-react";
 import { EditIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import {
-  useDeleteTemplateMutation,
-  useGetAllTemplatesQuery,
-} from "../../../../store/api";
+import { useDeleteTemplateMutation, useGetAllTemplatesQuery } from "../../../../store/features/template/api";
+
 
 export const useTemplatesData = () => {
   const navigate = useNavigate();
   const { data = [] } = useGetAllTemplatesQuery();
+  console.log("data is: ", data);
   const [triggerDelete] = useDeleteTemplateMutation();
 
   const rows = data.map((template) => ({
